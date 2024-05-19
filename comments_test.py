@@ -1,9 +1,14 @@
 import codepost
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 #Code to get the comments forma a specific submission
+api_key = os.getenv('API_KEY')
 
 #API Token
-codepost.configure_api_key("74e234eeaa957ea5e867bbf031bf09ca47e6244f")
+codepost.configure_api_key(api_key)
 
 #All avaiable courses
 all_courses = codepost.course.list_available()
@@ -45,5 +50,6 @@ comments_ids = my_file.comments
 print("Student " + student_email)
 for i in range(0,len(comments_ids)):
     print("Line " + str(comments_ids[i].startLine) + ": " + comments_ids[i].text)
+
 
 
