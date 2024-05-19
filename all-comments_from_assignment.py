@@ -1,9 +1,15 @@
 import codepost
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+api_key = os.getenv('API_KEY')
 
 #Code to get the comments from all the submissions from a specific assignment
 
 #API Token
-codepost.configure_api_key("74e234eeaa957ea5e867bbf031bf09ca47e6244f")
+codepost.configure_api_key(api_key)
 
 #All avaiable courses
 all_courses = codepost.course.list_available()
@@ -54,7 +60,7 @@ for i in range(0, len(files)):
 
     for j in range(0,len(students_emails[i])):
         #print("Student " + students_emails[i][j])
-        emails = emails + "_" + students_emails[i][j]
+        emails = emails + students_emails[i][j] + " "
 
     filename = f"Comentarios_{emails}.txt"
 
