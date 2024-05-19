@@ -1,0 +1,2 @@
+Line 49: You actually need to pass `midpoint + 1` here. Why? Because you know `arr[midpoint] != el`, so you no longer need to keep it around.
+Line 54: Same here, you need to pass `midpoint - 1` instead of midpoint for the logic to work correctly.
